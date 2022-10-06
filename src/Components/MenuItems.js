@@ -19,21 +19,21 @@ const MenuItems = ({ items, depthLevel }) => {
       }
     };
     document.addEventListener('mousedown', handler);
-    // document.addEventListener('touchstart', handler);
+    document.addEventListener('touchstart', handler);
     return () => {
       // Cleanup the event listener
       document.removeEventListener('mousedown', handler);
-      // document.removeEventListener('touchstart', handler);
+      document.removeEventListener('touchstart', handler);
     };
   }, [dropdown]);
 
-  // const onMouseEnter = () => {
-  //   window.innerWidth > 960 && setDropdown(true);
-  // };
+  const onMouseEnter = () => {
+    window.innerWidth > 960 && setDropdown(true);
+  };
 
-  // const onMouseLeave = () => {
-  //   window.innerWidth > 960 && setDropdown(false);
-  // };
+  const onMouseLeave = () => {
+    window.innerWidth > 960 && setDropdown(false);
+  };
 
   const closeDropdown = () => {
     dropdown && setDropdown(false);
@@ -43,8 +43,8 @@ const MenuItems = ({ items, depthLevel }) => {
     <li
       className="menu-items"
       ref={ref}
-      // onMouseEnter={onMouseEnter}
-      // onMouseLeave={onMouseLeave}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
       onClick={closeDropdown}
     >
       {items.url && items.submenu ? (
